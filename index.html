@@ -1,0 +1,35 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File Tree Generator</title>
+    <link rel="stylesheet" href="index.css" />
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+</head>
+
+<body onload="createTree();">
+    <div class="side left">
+        <div id="root" class="container">
+            <div id="1" class="root">
+                <label>root</label>
+            </div>
+
+            <div id="garbage" class="garbage" ondrop="garbage(event)" ondragover="allowDrop(event)">
+                <svg class="gray" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" height="16" data-view-component="true" class="octicon octicon-trash">
+                    <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
+                </svg>
+            </div>
+        </div>
+        <button type="button" onclick="createNode();">Add Node</button>
+    </div>
+    <div class="side right">
+        <div class="container">
+            <pre id="output" class="output"></pre>
+        </div>
+    </div>
+</body>
+
+</html>

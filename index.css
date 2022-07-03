@@ -1,0 +1,83 @@
+body {
+    background-color: #0d1117;
+    text-align: center;
+    font-family: 'Consolas';
+    color: #f0f6fc;
+}
+
+.container {
+    border-radius: 6px;
+    background-color: #161b22;
+    min-height: 300px;
+    min-width: 300px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container .root {
+    font-size: 18px;
+    padding: 15px 20px;
+}
+
+.container .root label {
+    text-decoration: underline;
+    height: 25px;
+}
+
+.container .child {
+    font-size: 16px;
+    padding: 0px 15px;
+}
+
+.output {
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+.editbox {
+    width: fit-content;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.editbox br {
+    display: none;
+}
+
+button {
+    color: #c8d1d9;
+    background-color: #21262d;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 6px;
+    border-color: rgba(240, 246, 252, 0.1);
+    padding: 3px 12px;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.mouseover {
+    background-color: #30363d;
+    border-radius: 4px;
+}
+
+.side {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin: 10px;
+}
+
+.gray {
+    fill: #8b949e;
+}
+
+.garbage {
+    color: #8b949e;
+    padding: 10px;
+    width: 16px;
+    height: 16px;
+}
