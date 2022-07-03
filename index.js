@@ -42,6 +42,7 @@ TreeView.prototype.printTree = function() {
     childElem.innerText = this.name;
     childElem.classList.add("editbox");
     childElem.setAttribute("contenteditable", true);
+    childElem.addEventListener("input", setOutput, false);
     holdElem.appendChild(childElem);
 
     if (parentElem !== null) {
@@ -93,6 +94,7 @@ function allowDrop(event) {
 function garbage(event) {
     event.preventDefault();
     dragging.remove();
+    setOutput();
 }
 
 let dragging = null;
@@ -104,27 +106,22 @@ function handleDragStart(event) {
 function setOutput() {
     var output = document.getElementById("output");
     var root = document.getElementById("1");
-    output.innerHTML = "root\n" + getBranch(root, -1);
+    output.innerHTML = root.firstElementChild.textContent + "\n" + getBranch(root, "");
 }
 
-function getBranch(branch, depth, index) {
+function getBranch(branch, suffix) {
     var output = "";
-    depth++;
     for (var i = 1; i < branch.children.length; i++) {
-        if (depth > 0) {
-            if (document.getElementById("1").children.length - 1 == index) {
-                output += `${"  ".repeat(depth)}`;
-            } else {
-                output += `│${" ".repeat(depth*2-1)}`;
-            }
-        }
+        var append = "";
         if (i == branch.children.length - 1) {
-            output += "└─" + branch.children[i].firstChild.innerText + "\n";
+            output += suffix + "└─" + branch.children[i].firstChild.innerText + "\n";
+            append = "  ";
         } else {
-            output += "├─" + branch.children[i].firstChild.innerText + "\n";
+            output += suffix + "├─" + branch.children[i].firstChild.innerText + "\n";
+            append = "│ ";
         }
         if (branch.children[i].children.length > 1) {
-            output += getBranch(branch.children[i], depth, i);
+            output += getBranch(branch.children[i], suffix + append);
         }
     }
     return output;
